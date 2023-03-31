@@ -1,13 +1,30 @@
-class Student {
+class Student extends Person{
 
     constructor(name, surname, yob, grades) {
 
-        this.name = name;
-        this.surname = surname;
-        this.yob = yob;
-        this.grades = grades
+     super(name, surname, yob);
+        this._grades = grades
+    }
+    get grades() {
+        return this._grades;
     }
 
+    // get yob() {
+    //     return this._yob;
+    // }
+
+    // set yob(value) {
+    //     const oldYob = 1980;
+    //     if (this._yob) {
+    //         oldYob = this._yob;
+    //     }
+    //     this._yob = value;
+    //     const newAge = this.calculateAge();
+    //     if (newAge < 18 || newAge > 100) {
+    //         this._yob = oldYob;
+
+    //     }
+    // }
     calculateMean() {
         const grades = this.grades;
         let sum = 0
@@ -19,13 +36,16 @@ class Student {
         return mean;
     }
 
+
     toString() {
-        return`
-    NOME: ${this.name}
-    COGNOME: ${this.surname}
-    ETA':${this.calculateAge()}
-    MEDIA:${this.calculateMean()}
-    `
+        return super.toString()
+        + "MEDIA:" + this.calculateMean() + '\n'
+        //     return`
+        // NOME: ${this.name}
+        // COGNOME: ${this.surname}
+        // ETA':${this.calculateAge()}
+        // MEDIA:${this.calculateMean()}
+        // `
 
     }
     //NOME: Davide
@@ -33,11 +53,12 @@ class Student {
     //ETA': 34
     //MEDIA: 5.4
 
-    calculateAge() {
-        const actualYear = new Date().getFullYear();
-        const age = actualYear - this.yob;
-        return age;
-    }
+    // calculateAge() {
+    //     const actualDate = new Date();
+    //     const actualYear = actualDate.getFullYear();
+    //     const age = actualYear - this.yob;
+    //     return age;
+    // }
     //34
 }
 
