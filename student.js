@@ -14,7 +14,7 @@ class Student extends Person{
     // }
 
     // set yob(value) {
-    //     const oldYob = 1980;
+    //     let oldYob = 1980;
     //     if (this._yob) {
     //         oldYob = this._yob;
     //     }
